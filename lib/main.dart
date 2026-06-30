@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'info.dart';
 
 void main() {
   runApp(const MyApp());
@@ -155,6 +156,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 decoration: InputDecoration(
                   labelText: 'Enter height (m)'
                 ),
+              ),
+              Expanded(child: SizedBox()), // Pushes content below to the bottom
+              IconButton(
+                onPressed: () { // Fixed syntax: added ()
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Info(bmi: _bmioutput),
+                    ),
+                  );
+                },
+              icon: Icon(Icons.info),
+                iconSize:48,
+                color:Colors.orangeAccent,
               ),
               Row(
                 mainAxisAlignment: .center,
